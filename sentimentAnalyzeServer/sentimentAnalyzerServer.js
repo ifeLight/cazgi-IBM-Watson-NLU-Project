@@ -113,6 +113,7 @@ app.get("/text/emotion", (req, res) => {
     naturalLanguageUnderstanding.analyze(analyzeParams)
         .then(analysisResults => {
             //Retrieve the emotion and return it as a formatted string
+            console.log(analysisResults.result.keywords[0].emotion)
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
         })
         .catch(err => {
